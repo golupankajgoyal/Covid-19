@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/indiaFragment">
+
+    <fragment
+        android:id="@+id/indiaFragment"
+        android:name="com.example.covid_19.india.IndiaFragment"
+        android:label="fragment_india"
+        tools:layout="@layout/fragment_india" >
+        <action
+            android:id="@+id/action_indiaFragment_to_stateFragment"
+            app:destination="@id/stateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/districFragment"
+        android:name="com.example.covid_19.districts.DistricFragment"
+        android:label="DistricFragment" >
+        <argument
+            android:name="stateName"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/stateFragment"
+        android:name="com.example.covid_19.states.StateFragment"
+        android:label="fragment_distric"
+        tools:layout="@layout/fragment_distric" >
+        <action
+            android:id="@+id/action_stateFragment_to_districFragment"
+            app:destination="@id/districFragment" />
+    </fragment>
+</navigation>
