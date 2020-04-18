@@ -25,8 +25,8 @@ public class StateViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public StateViewHolder(@NonNull View itemView) {
         super(itemView);
         confirmedTv = itemView.findViewById(R.id.state_confirmed_cases_count_tv);
-        activeTv = itemView.findViewById(R.id.state_death_count_tv);
-        recoveredTv = itemView.findViewById(R.id.state_death_count_tv);
+        activeTv = itemView.findViewById(R.id.state_active_cases_count_tv);
+        recoveredTv = itemView.findViewById(R.id.state_recovered_cases_count_tv);
         deathTv = itemView.findViewById(R.id.state_death_count_tv);
         stateNameTv = itemView.findViewById(R.id.state_name_tv);
         districtButton = itemView.findViewById(R.id.district_button);

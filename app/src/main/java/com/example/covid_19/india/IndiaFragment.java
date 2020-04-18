@@ -23,6 +23,7 @@ import com.example.covid_19.NetworkUtils;
 import com.example.covid_19.R;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,9 +36,7 @@ public class IndiaFragment extends Fragment implements LoaderManager.LoaderCallb
     private RecyclerView mRecyclerView;
     private IndiaRecyclerViewAdapter mAdapter=null;
     private URL url=null;
-    private List<Integer> cases;
 
-    private List<IndiaData> mData=null;
     public IndiaFragment() {
         // Required empty public constructor
     }
@@ -47,7 +46,9 @@ public class IndiaFragment extends Fragment implements LoaderManager.LoaderCallb
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_india, container, false);
+        View view=inflater.inflate(R.layout.fragment_india,container,false);
+
+        return view;
     }
 
     @Override
@@ -72,9 +73,9 @@ public class IndiaFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {
 
-        List<IndiaData> formattedData=null;
-        mData=NetworkUtils.getIndiaFormattedData(data);
-        mAdapter=new IndiaRecyclerViewAdapter(mData);
+        List<IndiaData> formattedData=new ArrayList<>();
+        formattedData=NetworkUtils.getIndiaFormattedData(data);
+        mAdapter=new IndiaRecyclerViewAdapter(formattedData);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
 

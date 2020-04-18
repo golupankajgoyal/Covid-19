@@ -41,4 +41,6 @@ public class IndiaRecyclerViewAdapter extends RecyclerView.Adapter<IndiaViewHold
         } else
             return mData.size();
     }
+
+
 }

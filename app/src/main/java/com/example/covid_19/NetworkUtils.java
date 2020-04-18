@@ -104,10 +104,15 @@ public class NetworkUtils {
     public static List<IndiaData> getIndiaFormattedData(String jsonResponse){
         List<IndiaData> indiaData=new ArrayList<>();
         List<Integer> imagesData=new ArrayList<>();
+        List<String> casesTitle=new ArrayList<>();
         imagesData.add(0,R.drawable.india);
         imagesData.add(1,R.drawable.rope);
         imagesData.add(2,R.drawable.skull);
         imagesData.add(3,R.drawable.therapy);
+        casesTitle.add(0,"Total Cases");
+        casesTitle.add(1,"Recovered Cases");
+        casesTitle.add(2,"Death Cases");
+        casesTitle.add(3,"Active Cases");
 
         try {
             JSONObject baseJsonObject=new JSONObject(jsonResponse);
@@ -122,7 +127,8 @@ public class NetworkUtils {
             for(int i=0;i<totalKeys.size();i++){
                 int cases=totalJsonObject.getInt(totalKeys.get(i));
                 int imageId=imagesData.get(i);
-                IndiaData currentData=new IndiaData(cases,imageId);
+                String title=casesTitle.get(i);
+                IndiaData currentData=new IndiaData(cases,imageId,title);
                 indiaData.add(currentData);
             }
 

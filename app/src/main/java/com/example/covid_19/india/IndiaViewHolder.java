@@ -14,14 +14,17 @@ public class IndiaViewHolder extends RecyclerView.ViewHolder {
 
     private TextView textView;
     private ImageView imageView;
+    private TextView title_tv;
     public IndiaViewHolder(@NonNull View itemView) {
         super(itemView);
         textView=itemView.findViewById(R.id.total_cases);
         imageView=itemView.findViewById(R.id.icon);
+        title_tv=itemView.findViewById(R.id.title);
     }
 
     public void bind(IndiaData indiaData){
         textView.setText("" + indiaData.getCases());
+        title_tv.setText(""+ indiaData.getCasesTitle());
         imageView.setImageResource(indiaData.getImageResourceId());
     }
 }

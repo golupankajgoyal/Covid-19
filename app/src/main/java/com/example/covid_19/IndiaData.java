@@ -4,10 +4,12 @@ public class IndiaData {
 
     private int cases;
     private int imageResourceId;
+    private String casesTitle;
 
-    public IndiaData(int casesCount,int imageId){
+    public IndiaData(int casesCount,int imageId,String title){
         cases=casesCount;
         imageResourceId=imageId;
+        casesTitle=title;
     }
 
     public int getCases(){
@@ -16,5 +18,9 @@ public class IndiaData {
 
     public int getImageResourceId(){
         return imageResourceId;
+    }
+
+    public String getCasesTitle(){
+        return casesTitle;
     }
 }

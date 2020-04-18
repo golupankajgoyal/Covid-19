@@ -7,7 +7,6 @@ public class StateData {
     private int mRecoveredCases;
     private int mDeath;
     private String mStateName;
-    private int mImageResourceId=-1;
 
     public StateData(int confirmedCases, int activeCases, int recoveredCases, int death, String stateName){
 
@@ -16,16 +15,6 @@ public class StateData {
         mRecoveredCases=recoveredCases;
         mDeath=death;
         mStateName=stateName;
-    }
-
-    public StateData(int confirmedCases, int activeCases, int recoveredCases, int death, String stateName,int imageTrsourceId) {
-
-        mConfirmedCases=confirmedCases;
-        mActiveCases=activeCases;
-        mRecoveredCases=recoveredCases;
-        mDeath=death;
-        mStateName=stateName;
-        mImageResourceId=imageTrsourceId;
     }
 
     public int getmConfirmedCases(){
