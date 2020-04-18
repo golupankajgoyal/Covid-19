@@ -23,6 +23,7 @@ import com.example.covid_19.R;
 import com.example.covid_19.StateData;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -52,7 +53,6 @@ public class StateFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mRecyclerView=view.findViewById(R.id.state_recyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         url=NetworkUtils.buildUrl(STATE_URL);
         ConnectivityManager cm = (ConnectivityManager)getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();

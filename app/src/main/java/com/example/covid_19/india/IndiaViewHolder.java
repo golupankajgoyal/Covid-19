@@ -21,7 +21,7 @@ public class IndiaViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(IndiaData indiaData){
-        textView.setText(indiaData.getCases());
+        textView.setText("" + indiaData.getCases());
         imageView.setImageResource(indiaData.getImageResourceId());
     }
 }
