@@ -7,13 +7,14 @@
     tools:context=".india.IndiaFragment">
 
 <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerView"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:overScrollMode="never"
     android:clipToPadding="false"
-    android:id="@+id/recyclerView"
+    android:overScrollMode="never"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    app:layout_constraintTop_toTopOf="parent"
+    tools:listitem="@layout/item_india_data" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

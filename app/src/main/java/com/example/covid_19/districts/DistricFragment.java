@@ -23,6 +23,7 @@ import com.example.covid_19.NetworkUtils;
 import com.example.covid_19.R;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,7 +36,7 @@ public class DistricFragment extends Fragment implements LoaderManager.LoaderCal
     private static URL url;
     private DistrictRecyclerViewAdapter mAdapter;
     private RecyclerView mRecyclerView;
-
+    private String stateName=null;
     public DistricFragment() {
         // Required empty public constructor
     }
@@ -53,6 +54,7 @@ public class DistricFragment extends Fragment implements LoaderManager.LoaderCal
         mRecyclerView=view.findViewById(R.id.disrict_recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         url= NetworkUtils.buildUrl(DISTRICT_URL);
+        stateName=DistricFragmentArgs.fromBundle(getArguments()).getStateName();
         ConnectivityManager cm = (ConnectivityManager)getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         if (activeNetwork!= null && activeNetwork.isConnected()){
@@ -69,8 +71,8 @@ public class DistricFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {
-        List<DistrictData> formattedData=null;
-        formattedData=NetworkUtils.getFormattedDistrictData(data,"delhi");
+        List<DistrictData> formattedData=new ArrayList<>();
+        formattedData=NetworkUtils.getFormattedDistrictData(data,stateName);
         mAdapter=new DistrictRecyclerViewAdapter(formattedData);
         mRecyclerView.setAdapter(mAdapter);
     }
